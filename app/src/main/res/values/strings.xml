@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Unit Converter</string>
+
+    <string name="select_unit_text">  Select a category</string>
+
+</resources>
