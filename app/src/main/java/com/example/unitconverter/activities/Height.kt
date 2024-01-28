@@ -30,6 +30,18 @@ class Height : AppCompatActivity() {
         setContentView(binding!!.root)
 
 
+
+        setSupportActionBar(binding?.toolbarHeight)
+        val actionBar = supportActionBar
+        if(actionBar != null)
+            actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar!!.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24)
+        actionBar.title ="Height"
+
+        binding?.toolbarHeight?.setNavigationOnClickListener { onBackPressed() }
+
+
+
         val arrayAdapter = ArrayAdapter<String>(
             this,android.R.layout.simple_spinner_dropdown_item,Height)
 

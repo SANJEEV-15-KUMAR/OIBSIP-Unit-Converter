@@ -2,13 +2,11 @@ package com.example.unitconverter.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.unitconverter.R
-import com.example.unitconverter.databinding.ActivitySelectUnitBinding
 import com.example.unitconverter.databinding.ActivityWeightBinding
 
 class Weight : AppCompatActivity() {
@@ -26,6 +24,21 @@ class Weight : AppCompatActivity() {
         binding = ActivityWeightBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
+
+
+        setSupportActionBar(binding?.toolbarWeight)
+        val actionBar = supportActionBar
+        if(actionBar != null)
+            actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar!!.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24)
+        actionBar.title ="Weight"
+
+        binding?.toolbarWeight?.setNavigationOnClickListener { onBackPressed() }
+
+
+
+
+
      val arrayAdapter = ArrayAdapter<String>(
          this,android.R.layout.simple_spinner_dropdown_item,weight)
 
@@ -33,22 +46,23 @@ class Weight : AppCompatActivity() {
             this,android.R.layout.simple_spinner_dropdown_item,weight)
 
       binding?.spinnerWeight1!!.adapter = arrayAdapter
+
       binding?.spinnerWeight1!!.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-          override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-              spinnerval = weight[position]
-          }
+        override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+            spinnerval = weight[position]
+        }
 
-          override fun onNothingSelected(p0: AdapterView<*>?) {
-              TODO("Not yet implemented")
-          }
+        override fun onNothingSelected(p0: AdapterView<*>?) {
+            TODO("Not yet implemented")
+        }
 
-      }
+    }
 
 
         binding?.spinnerWeight2!!.adapter = arrayAdapter
         binding?.spinnerWeight2!!.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                spinnerval2 = weight[position]
+                 spinnerval2 = weight[position]
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -60,7 +74,7 @@ class Weight : AppCompatActivity() {
 
 
         binding?.button?.setOnClickListener {
-            if(spinnerval== "Kg" && spinnerval2 =="gm"){
+            if(spinnerval== "Kg" && spinnerval2 =="gram"){
 
                 if(binding?.EdWeihght1!!.text.isNotEmpty()){
                     val number = binding?.EdWeihght1!!.text.toString().toFloat()*1000

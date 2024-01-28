@@ -7,6 +7,23 @@
     android:background="@drawable/background"
     tools:context=".activities.Height">
 
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_height"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:subtitleTextColor="@color/black"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
     <EditText
         android:id="@+id/EdWeihght1"
         android:layout_width="160dp"
@@ -44,6 +61,7 @@
         android:id="@+id/Tvresult"
         android:layout_width="160dp"
         android:layout_height="45dp"
+        android:gravity="center_vertical"
         android:background="@drawable/ed_background"
         app:layout_constraintBottom_toBottomOf="@+id/EdWeihght1"
         app:layout_constraintEnd_toEndOf="parent"
